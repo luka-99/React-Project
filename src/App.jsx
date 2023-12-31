@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../public/stylesheet/Header.css";
+import "../public/stylesheet/Image.css";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -40,6 +41,20 @@ function App() {
             </div>
             <img src="/images/oval.png" className="profile-picture" />
           </div>
+        </div>
+      </div>
+
+      <div className="image-container">
+        <img
+          src="/images/Rectangle.png"
+          alt="Big Image"
+          className="big-image"
+        />
+        <div className="small-images">
+          <img src="/images/Rectangle.png" alt="Small Image 1" />
+          <img src="/images/Rectangle2.png" alt="Small Image 2" />
+          <img src="/images/Rectangle3.png" alt="Small Image 3" />
+          <img src="/images/Rectangle4.png" alt="Small Image 4" />
         </div>
       </div>
     </>
