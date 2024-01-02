@@ -18,6 +18,13 @@ body {
   align-items: center;
 }
 
+.mobile-nav-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 1.25rem;
+  display: none;
+}
+
 .logo {
   margin-right: 3.5rem;
 }
@@ -55,7 +62,7 @@ body {
 .div-links a:hover::before {
   background-color: #ff7e1b;
   height: 3px;
-  bottom: -2.8rem;
+  bottom: -41px;
 }
 
 .right-section {
@@ -127,4 +134,76 @@ body {
 
 .profile-picture:hover {
   border-color: #ff7e1b;
+}
+
+@media (max-width: 980px) {
+  .nav-container {
+    align-items: center;
+  }
+  .mobile-nav-icon {
+    display: block;
+  }
+
+  .div-links,
+  .div-links-menu {
+    display: none;
+  }
+
+  .mobile-nav-open .div-links {
+    display: flex;
+  }
+
+  .mobile-nav,
+  .mobile-nav-open {
+    display: block;
+    width: 100%;
+  }
+
+  .mobile-nav-icon {
+    display: block;
+    position: relative;
+  }
+
+  .logo {
+    position: absolute;
+    margin-left: 3.1rem;
+  }
+
+  .cart {
+    margin-right: 1rem;
+  }
+
+  .profile-picture {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .box-section {
+    width: 90%;
+    margin: 30px auto;
+  }
+
+  .box-section::after {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .logo {
+    margin-left: 2.2rem;
+  }
+
+  .cart {
+    margin-right: 0.1rem;
+  }
+
+  .profile-picture {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .box-section {
+    width: 90%;
+    margin: 10px auto;
+  }
 }
