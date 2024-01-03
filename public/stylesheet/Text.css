@@ -1,0 +1,189 @@
+.text-container {
+  position: absolute;
+  width: 35%;
+  top: 30vh;
+  left: 100vh;
+}
+
+.sneaker-company {
+  color: #ff7e1b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.limited-edition {
+  color: #1d2026;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 48px;
+  position: relative;
+}
+
+.sneaker-description {
+  width: 80%;
+  color: #69707d;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.rating-container {
+  border-radius: 10px;
+  width: 224px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  background-color: #f6f8fd;
+}
+
+.star-container {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  width: 20px;
+  height: 20px;
+  color: #ffd700;
+  margin-right: 5px;
+}
+
+.star.transparent-border {
+  color: transparent;
+  stroke: black;
+  stroke-width: 40;
+}
+
+.rating-text {
+  color: #1d2026;
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  margin-left: 10px;
+}
+
+.rating-text {
+  color: #484744;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 48px;
+}
+
+.discounted-price {
+  color: #1d2026;
+  font-size: 25px;
+  font-weight: 700;
+  display: flex;
+}
+
+.price {
+  color: #b6bcc8;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 23px;
+  text-decoration-line: line-through;
+  margin-top: -15px;
+}
+
+.discount-percentage-border {
+  height: 24px;
+  width: 47px;
+  display: flex;
+  justify-content: center;
+  background-color: #ffeee2;
+  border-radius: 6px;
+  margin-left: 10px;
+}
+
+.discount-percentage {
+  color: #ff7e1b;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.product-buttons {
+  display: flex;
+  margin-top: 40px;
+}
+
+.number-box {
+  width: 157px;
+  height: 56px;
+  border-radius: 10px;
+  background: #f6f8fd;
+  display: flex;
+  align-items: center;
+}
+
+.decrease-button,
+.increase-button {
+  background-color: transparent;
+  color: #ff7e1b;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 26px;
+  margin: 0;
+  transition: 0.1s ease;
+}
+
+.decrease-button:hover,
+.increase-button:hover {
+  background-color: #e67000;
+  color: white;
+}
+
+.increase-button:hover {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.decrease-button:hover {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.decrease-button {
+  margin-right: auto;
+}
+
+.increase-button {
+  margin-left: auto;
+}
+
+.number {
+  margin: 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1d2026;
+}
+
+.add-button {
+  cursor: pointer;
+  margin-left: 20px;
+  width: 272px;
+  height: 56px;
+  border-radius: 10px;
+  background: #ff7e1b;
+  box-shadow: 0px 20px 50px -20px #ff7e1b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
+}
+
+.add-button:hover {
+  background: #ffab6a;
+}
+
+.cart-button {
+  margin-right: 10px;
+}

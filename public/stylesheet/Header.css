@@ -11,6 +11,7 @@ body {
   width: 80%;
   margin: 30px auto;
   border-radius: 0.5rem;
+  z-index: 3;
 }
 
 .nav-container {

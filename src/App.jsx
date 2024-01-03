@@ -1,8 +1,13 @@
 import { useState } from "react";
 import "../public/stylesheet/Header.css";
 import "../public/stylesheet/Image.css";
+import "../public/stylesheet/Text.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BsList } from "react-icons/bs";
+import { FaStar } from "react-icons/fa";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -68,6 +73,47 @@ function App() {
           <img src="/images/Rectangle2.png" alt="Small Image 2" />
           <img src="/images/Rectangle3.png" alt="Small Image 3" />
           <img src="/images/Rectangle4.png" alt="Small Image 4" />
+        </div>
+
+        <div className="text-container">
+          <p className="sneaker-company">Sneaker Company</p>
+          <p className="limited-edition">Fall Limited Edition Sneakers</p>
+          <div className="rating-container">
+            <div className="star-container">
+              <FaStar className="star filled" />
+              <FaStar className="star filled" />
+              <FaStar className="star filled" />
+              <FaStar className="star filled" />
+              <FaStar className="star transparent-border" />
+            </div>
+
+            <p className="rating-text">4.2 out of 5</p>
+          </div>
+          <p className="sneaker-description">
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they’ll withstand everything
+            the weather can offer.
+          </p>
+          <p className="discounted-price">
+            $125.00
+            <p className="discount-percentage-border">
+              <p className="discount-percentage">50%</p>
+            </p>
+          </p>
+          <p className="price">$250.00</p>
+
+          <div className="product-buttons">
+            <div className="number-box">
+              <button className="decrease-button bi bi-dash"></button>
+              <div className="number">0</div>
+              <button className="increase-button bi bi-plus"></button>
+            </div>
+
+            <div className="add-button">
+              <img src="/images/cart-2.svg" className="cart-button" />
+              Add to cart
+            </div>
+          </div>
         </div>
       </div>
     </>
