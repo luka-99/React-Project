@@ -1,5 +1,4 @@
 .image-container {
-  border: 2px solid;
   width: 100%;
   max-width: 75%;
   display: flex;
@@ -27,4 +26,19 @@
   width: 100%;
   max-width: 5.5rem;
   height: auto;
+}
+
+@media (max-width: 1315px) {
+  .big-image {
+    display: none;
+  }
+
+  .small-images {
+    display: none;
+  }
+
+  .image-container {
+    margin-top: 0vh;
+    max-width: 100%;
+  }
 }

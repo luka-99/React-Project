@@ -8,6 +8,9 @@ import { FaStar } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
+import "../public/stylesheet/Slide.css";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -19,6 +22,19 @@ function App() {
 
   const toggleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
+  const properties = {
+    prevArrow: (
+      <button className="button-style">
+        <img src="/images/LeftArrow.svg" />
+      </button>
+    ),
+    nextArrow: (
+      <button className="button-style">
+        <img src="/images/RightArrow.svg" />
+      </button>
+    ),
   };
 
   return (
@@ -60,6 +76,27 @@ function App() {
             <img src="/images/oval.png" className="profile-picture" />
           </div>
         </div>
+      </div>
+
+      <div className="slideshow-container">
+        <Slide {...properties}>
+          <div className="slide-item">
+            <img
+              src="/images/Rectangle.png"
+              alt="Big Image"
+              className="big-image"
+            />
+          </div>
+          <div className="slide-item">
+            <img src="/images/Rectangle2.png" alt="Small Image 1" />
+          </div>
+          <div className="slide-item">
+            <img src="/images/Rectangle3.png" alt="Small Image 2" />
+          </div>
+          <div className="slide-item">
+            <img src="/images/Rectangle4.png" alt="Small Image 3" />
+          </div>
+        </Slide>
       </div>
 
       <div className="image-container">

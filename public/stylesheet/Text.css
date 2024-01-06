@@ -187,3 +187,14 @@
 .cart-button {
   margin-right: 10px;
 }
+
+@media (max-width: 1315px) {
+  .text-container {
+    position: relative;
+    width: 90%;
+    top: auto;
+    left: auto;
+    margin: auto;
+    margin-top: 2rem;
+  }
+}
