@@ -123,6 +123,11 @@ body {
   margin: 4rem 0;
 }
 
+.totalPrice{
+  margin-top:-20px;
+  margin-left:10px;
+}
+
 .profile-picture {
   width: 3.1rem;
   height: 3.1rem;
@@ -193,7 +198,7 @@ body {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
   .logo {
     margin-left: 2.2rem;
   }

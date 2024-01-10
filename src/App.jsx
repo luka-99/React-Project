@@ -15,6 +15,8 @@ import "../public/stylesheet/Slide.css";
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [number, setNumber] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -22,6 +24,21 @@ function App() {
 
   const toggleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
+  const increaseNumber = () => {
+    setNumber((prevNumber) => prevNumber + 1);
+  };
+
+  const decreaseNumber = () => {
+    if (number > 0) {
+      setNumber((prevNumber) => prevNumber - 1);
+    }
+  };
+
+  const addToCart = () => {
+    setTotalPrice(number * 125);
+    setIsCartOpen(true);
   };
 
   const properties = {
@@ -69,7 +86,12 @@ function App() {
                 <div className="cart-list active">
                   <p className="card-title">Cart</p>
                   <div className="cart-line"></div>
-                  <p className="cart-message center">Your cart is empty.</p>
+                  {totalPrice > 0 && (
+                    <p className="cart-totalPrice">Total: ${totalPrice}</p>
+                  )}
+                  {totalPrice === 0 && (
+                    <p className="cart-message center">Your cart is empty.</p>
+                  )}
                 </div>
               )}
             </div>
@@ -141,12 +163,18 @@ function App() {
 
           <div className="product-buttons">
             <div className="number-box">
-              <button className="decrease-button bi bi-dash"></button>
-              <div className="number">0</div>
-              <button className="increase-button bi bi-plus"></button>
+              <button
+                className="decrease-button bi bi-dash"
+                onClick={decreaseNumber}
+              ></button>
+              <div className="number">{number}</div>
+              <button
+                className="increase-button bi bi-plus"
+                onClick={increaseNumber}
+              ></button>
             </div>
 
-            <div className="add-button">
+            <div className="add-button" onClick={addToCart}>
               <img src="/images/cart-2.svg" className="cart-button" />
               Add to cart
             </div>
