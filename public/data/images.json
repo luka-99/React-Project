@@ -1,0 +1,18 @@
+[
+  {
+    "src": "/images/Rectangle.png",
+    "alt": "Big Image"
+  },
+  {
+    "src": "/images/Rectangle2.png",
+    "alt": "Small Image 1"
+  },
+  {
+    "src": "/images/Rectangle3.png",
+    "alt": "Small Image 2"
+  },
+  {
+    "src": "/images/Rectangle4.png",
+    "alt": "Small Image 3"
+  }
+]

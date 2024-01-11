@@ -11,6 +11,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import "../public/stylesheet/Slide.css";
+import imagesData from "../public/data/images.json";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -107,18 +108,11 @@ function App() {
 
       <div className="slideshow-container">
         <Slide {...properties}>
-          <div className="slide-item">
-            <img src="/images/Rectangle.png" alt="Big Image" />
-          </div>
-          <div className="slide-item">
-            <img src="/images/Rectangle2.png" alt="Small Image 1" />
-          </div>
-          <div className="slide-item">
-            <img src="/images/Rectangle3.png" alt="Small Image 2" />
-          </div>
-          <div className="slide-item">
-            <img src="/images/Rectangle4.png" alt="Small Image 3" />
-          </div>
+          {imagesData.map((image, index) => (
+            <div className="slide-item" key={index}>
+              <img src={image.src} alt={image.alt} />
+            </div>
+          ))}
         </Slide>
       </div>
 
@@ -127,70 +121,22 @@ function App() {
           <img src={selectedImage} alt="Big Image" className="big-image" />
         </div>
         <div className="small-images">
-          <div className="small-image-container">
-            <img
-              src="/images/Rectangle.png"
-              alt="Small Image 1"
-              onClick={() => handleSmallImageClick("/images/Rectangle.png")}
-              className={
-                selectedImage === "/images/Rectangle.png" ? "blur" : ""
-              }
-            />
-            <div
-              className={`blur-overlay ${
-                selectedImage === "/images/Rectangle.png" ? "active" : ""
-              }`}
-            ></div>
-          </div>
-
-          <div className="small-image-container">
-            <img
-              src="/images/Rectangle2.png"
-              alt="Small Image 2"
-              onClick={() => handleSmallImageClick("/images/Rectangle2.png")}
-              className={
-                selectedImage === "/images/Rectangle2.png" ? "blur" : ""
-              }
-            />
-            <div
-              className={`blur-overlay ${
-                selectedImage === "/images/Rectangle2.png" ? "active" : ""
-              }`}
-            ></div>
-          </div>
-
-          <div className="small-image-container">
-            <img
-              src="/images/Rectangle3.png"
-              alt="Small Image 3"
-              onClick={() => handleSmallImageClick("/images/Rectangle3.png")}
-              className={
-                selectedImage === "/images/Rectangle3.png" ? "blur" : ""
-              }
-            />
-            <div
-              className={`blur-overlay ${
-                selectedImage === "/images/Rectangle3.png" ? "active" : ""
-              }`}
-            ></div>
-          </div>
-
-          <div className="small-image-container">
-            <img
-              src="/images/Rectangle4.png"
-              alt="Small Image 4"
-              onClick={() => handleSmallImageClick("/images/Rectangle4.png")}
-              className={
-                selectedImage === "/images/Rectangle4.png" ? "blur" : ""
-              }
-            />
-            <div
-              className={`blur-overlay ${
-                selectedImage === "/images/Rectangle4.png" ? "active" : ""
-              }`}
-            ></div>
-          </div>
-        </div>
+          {imagesData.map((image, index) => (
+            <div className="small-image-container" key={index}>
+              <img
+                src={image.src}
+                alt={image.alt}
+                onClick={() => handleSmallImageClick(image.src)}
+                className={selectedImage === image.src ? "blur" : ""}
+              />
+              <div
+                className={`blur-overlay ${
+                  selectedImage === image.src ? "active" : ""
+                }`}
+              ></div>
+            </div>
+          ))}
+        </div>  
 
         <div className="text-container">
           <p className="sneaker-company">Sneaker Company</p>
