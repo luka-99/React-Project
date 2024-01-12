@@ -12,6 +12,8 @@ import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import "../public/stylesheet/Slide.css";
 import imagesData from "../public/data/images.json";
+import "../public/stylesheet/Cart.css";
+import { BiTrash } from "react-icons/bi";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -19,6 +21,7 @@ function App() {
   const [number, setNumber] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [selectedImage, setSelectedImage] = useState("/images/Rectangle.png");
+  const [cartNumber, setCartNumber] = useState(0);
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -38,13 +41,22 @@ function App() {
     }
   };
 
+  const price = "125.00";
+
   const addToCart = () => {
-    setTotalPrice(number * 125);
+    setTotalPrice(number * price);
     setIsCartOpen(true);
+    setCartNumber(number);
   };
 
   const handleSmallImageClick = (imageSrc) => {
     setSelectedImage(imageSrc);
+  };
+
+  const removeFromCart = () => {
+    setTotalPrice(0);
+    setNumber(0);
+    setIsCartOpen(false);
   };
 
   const properties = {
@@ -93,7 +105,21 @@ function App() {
                   <p className="card-title">Cart</p>
                   <div className="cart-line"></div>
                   {totalPrice > 0 && (
-                    <p className="cart-totalPrice">Total: ${totalPrice}</p>
+                    <>
+                      <p className="cart-totalPrice cart-color">
+                        <img src={selectedImage} className="cart-image" />
+                        <div className="cart-totalPrice-text">
+                          <div>Fall Limited Edition Sneakers</div>${price} x{" "}
+                          {cartNumber}
+                          <span className="total-price">${totalPrice}</span>
+                        </div>
+                        <BiTrash
+                          className="trash-icon"
+                          onClick={removeFromCart}
+                        />
+                      </p>
+                      <div className="checkout-button">Checkout</div>
+                    </>
                   )}
                   {totalPrice === 0 && (
                     <p className="cart-message center">Your cart is empty.</p>
@@ -136,7 +162,7 @@ function App() {
               ></div>
             </div>
           ))}
-        </div>  
+        </div>
 
         <div className="text-container">
           <p className="sneaker-company">Sneaker Company</p>
@@ -158,7 +184,7 @@ function App() {
             the weather can offer.
           </p>
           <p className="discounted-price">
-            $125.00
+            ${price}
             <p className="discount-percentage-border">
               <p className="discount-percentage">50%</p>
             </p>
