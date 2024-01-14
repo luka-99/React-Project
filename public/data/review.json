@@ -1,0 +1,20 @@
+[
+  {
+    "reviewerName": "Ryan Welles",
+    "starRating": 4,
+    "reviewTitle": "Good for its price",
+    "reviewDescription": "The quality is good considering the affordable price point. They look good with jeans and are quite comfortable for daily wear."
+  },
+  {
+    "reviewerName": "Emily Moore",
+    "starRating": 5,
+    "reviewTitle": "Great quality",
+    "reviewDescription": "Comfortable for long walks, and they've held up great so far. They've quickly become my go-to pair!"
+  },
+  {
+    "reviewerName": "Emily Moore",
+    "starRating": 5,
+    "reviewTitle": "Recommended",
+    "reviewDescription": "Absolutely love these sneakers! They have a sleek, modern design with a comfortable fit right out of the box."
+  }
+]

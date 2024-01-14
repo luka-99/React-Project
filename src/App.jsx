@@ -1,12 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../public/stylesheet/Header.css";
 import "../public/stylesheet/Image.css";
 import "../public/stylesheet/Text.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BsList } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
@@ -14,6 +12,9 @@ import "../public/stylesheet/Slide.css";
 import imagesData from "../public/data/images.json";
 import "../public/stylesheet/Cart.css";
 import { BiTrash } from "react-icons/bi";
+import "../public/stylesheet/Review.css";
+import reviewsData from "../public/data/review.json";
+import ReviewItem from "./ReviewItem";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -22,6 +23,7 @@ function App() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [selectedImage, setSelectedImage] = useState("/images/Rectangle.png");
   const [cartNumber, setCartNumber] = useState(0);
+  const [buttonText, setButtonText] = useState("Write a review");
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -58,6 +60,24 @@ function App() {
     setNumber(0);
     setIsCartOpen(false);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 581) {
+        setButtonText("Add");
+      } else {
+        setButtonText("Write a review");
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const properties = {
     prevArrow: (
@@ -210,6 +230,18 @@ function App() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="reviews-container">
+        <div className="section-title">
+          Customer reviews
+          <div className="button-container">
+            <button className="review-button">{buttonText}</button>
+          </div>
+        </div>
+        {reviewsData.map((review, index) => (
+          <ReviewItem key={index} {...review} />
+        ))}
       </div>
     </>
   );
