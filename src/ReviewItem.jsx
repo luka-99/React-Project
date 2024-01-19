@@ -6,6 +6,7 @@ const ReviewItem = ({
   starRating,
   reviewTitle,
   reviewDescription,
+  isNew,
 }) => (
   <div className="review-item">
     <img src="../public/images/profile.png" alt="" />
@@ -21,6 +22,12 @@ const ReviewItem = ({
       </div>
       <div className="review-title">{reviewTitle}</div>
       <div className="review-description">{reviewDescription}</div>
+      {isNew && (
+        <div>
+          <button>Delete</button>
+          <button>Edit</button>
+        </div>
+      )}
     </div>
   </div>
 );
@@ -30,6 +37,7 @@ ReviewItem.propTypes = {
   starRating: PropTypes.number.isRequired,
   reviewTitle: PropTypes.string.isRequired,
   reviewDescription: PropTypes.string.isRequired,
+  isNew: PropTypes.bool,
 };
 
 export default ReviewItem;
