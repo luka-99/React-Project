@@ -87,6 +87,11 @@
   line-height: 26px;
 }
 
+.review-button.disabled {
+  background: #ffab6a;
+  cursor:default;
+}
+
 @media (max-width: 1315px) {
   .reviews-container {
     width: 90%;

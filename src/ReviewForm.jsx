@@ -55,8 +55,13 @@ const ReviewForm = () => {
           {!showForm && (
             <div className="button-container">
               <button
-                className="review-button"
+                className={`review-button${
+                  reviews.filter((review) => review.isNew).length > 0
+                    ? " disabled"
+                    : ""
+                }`}
                 onClick={() => handleFormToggle(true)}
+                disabled={reviews.filter((review) => review.isNew).length > 0}
               >
                 {showForm ? "Add" : "Write a review"}
               </button>
