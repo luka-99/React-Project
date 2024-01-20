@@ -14,6 +14,7 @@ import "../public/stylesheet/Cart.css";
 import { BiTrash } from "react-icons/bi";
 import "../public/stylesheet/Review.css";
 import ReviewForm from "./ReviewForm";
+import "../public/stylesheet/ReviewForm.css";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);

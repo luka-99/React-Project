@@ -55,7 +55,6 @@ const ReviewForm = () => {
     setReviews(updatedReviews);
   };
 
-  
   useEffect(() => {
     const handleResize = () => {
       setShowText(window.innerWidth < 401);
@@ -69,7 +68,6 @@ const ReviewForm = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
 
   return (
     <div>
@@ -119,16 +117,8 @@ const ReviewForm = () => {
             {({ values, setFieldValue, setFieldError }) => (
               <Form>
                 <div className="form-field">
-                  <label>Reviewer Name (optional):</label>
-                  <Field type="text" name="reviewerName" />
-                  <ErrorMessage
-                    name="reviewerName"
-                    component="div"
-                    className="error"
-                  />
-                </div>
-                <div className="form-field">
-                  <label>Select Star Rating:</label>
+                  <label className="title-rating">Overall Rating</label>
+                  <div className="star-buttons">
                   {starValues.map((value, index) => (
                     <button
                       key={index}
@@ -147,6 +137,7 @@ const ReviewForm = () => {
                       />
                     </button>
                   ))}
+                  </div>
                   <ErrorMessage
                     name="starRating"
                     render={(errorMessage) => (
@@ -158,8 +149,26 @@ const ReviewForm = () => {
                 </div>
 
                 <div className="form-field">
-                  <label>Review Title:</label>
-                  <Field type="text" name="reviewTitle" />
+                  <label className="title">Reviewer Name</label>
+                  <Field
+                    type="text"
+                    name="reviewerName"
+                    placeholder="Enter your name (optional)"
+                  />
+                  <ErrorMessage
+                    name="reviewerName"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+
+                <div className="form-field">
+                  <label className="title">Headline</label>
+                  <Field
+                    type="text"
+                    name="reviewTitle"
+                    placeholder="What’s most important to know?"
+                  />
                   <ErrorMessage
                     name="reviewTitle"
                     component="div"
@@ -168,8 +177,12 @@ const ReviewForm = () => {
                 </div>
 
                 <div className="form-field">
-                  <label>Written Review:</label>
-                  <Field as="textarea" name="reviewDescription" />
+                  <label className="title">Written Review</label>
+                  <Field
+                    as="textarea"
+                    name="reviewDescription"
+                    placeholder="What did you like or dislike? What did you use this product for?"
+                  />
                   <ErrorMessage
                     name="reviewDescription"
                     component="div"
@@ -178,10 +191,16 @@ const ReviewForm = () => {
                 </div>
 
                 <div className="form-buttons">
-                  <button type="button" onClick={() => handleFormToggle(false)}>
+                  <button
+                    type="button"
+                    onClick={() => handleFormToggle(false)}
+                    className="Cancel"
+                  >
                     Cancel
                   </button>
-                  <button type="submit">Add</button>
+                  <button type="submit" className="Add">
+                    Add
+                  </button>
                 </div>
               </Form>
             )}

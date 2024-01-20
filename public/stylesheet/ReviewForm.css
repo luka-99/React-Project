@@ -1,0 +1,122 @@
+.error {
+  color: #ff3d3d;
+}
+
+.reviews-container {
+  margin-bottom: 50px;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field input,
+.form-field textarea {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.title,
+.title-rating {
+  color: #1d2026;
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.title-rating {
+  margin-top: 30px;
+}
+
+.star-buttons .star {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-field input {
+  width: 55%;
+  padding: 5px;
+}
+
+.form-field textarea {
+  width: 55%;
+  padding: 20px;
+}
+
+.form-buttons {
+  width: 55%;
+  position: relative;
+}
+
+.star-buttons button {
+  background-color: transparent;
+  border: none;
+}
+
+.star-buttons button .star {
+  font-size: 24px;
+}
+
+.form-buttons {
+  margin-top: 16px;
+}
+
+.overall-rating-label {
+  margin-top: 10px;
+}
+
+.Cancel,
+.Add {
+  width: 80px;
+  height: 35px;
+  border-radius: 8px;
+  border: none;
+  font-family: "Kumbh Sans", sans-serif;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.Cancel {
+  background: #9c9c9c;
+  position: absolute;
+  right: 90px;
+}
+
+.Add {
+  background: #ff7e1b;
+  position: absolute;
+  right: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .form-field input,
+  .form-field textarea,
+  .form-buttons {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .form-field input,
+  .form-field textarea,
+  .form-buttons {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form-field input,
+  .form-field textarea,
+  .form-buttons {
+    width: 100%;
+  }
+}
