@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import ReviewItem from "./ReviewItem";
@@ -26,6 +26,7 @@ const ReviewForm = () => {
   const [showForm, setShowForm] = useState(false);
   const [selectedReview, setSelectedReview] = useState(null);
   const [reviews, setReviews] = useState(reviewsData);
+  const [showText, setShowText] = useState(false);
 
   const handleFormToggle = (show, review = null) => {
     setShowForm(show);
@@ -54,6 +55,22 @@ const ReviewForm = () => {
     setReviews(updatedReviews);
   };
 
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setShowText(window.innerWidth < 401);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
   return (
     <div>
       <div className="reviews-container">
@@ -70,7 +87,7 @@ const ReviewForm = () => {
                 onClick={() => handleFormToggle(true)}
                 disabled={reviews.filter((review) => review.isNew).length > 0}
               >
-                {showForm ? "Add" : "Write a review"}
+                {showText ? "Add" : "Write a review"}
               </button>
             </div>
           )}
