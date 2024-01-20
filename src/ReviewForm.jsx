@@ -47,6 +47,13 @@ const ReviewForm = () => {
     handleFormToggle(false);
   };
 
+  const handleDeleteReview = (reviewToDelete) => {
+    const updatedReviews = reviews.filter(
+      (review) => review !== reviewToDelete
+    );
+    setReviews(updatedReviews);
+  };
+
   return (
     <div>
       <div className="reviews-container">
@@ -72,7 +79,12 @@ const ReviewForm = () => {
         {!showForm &&
           reviews.map((review, index) => (
             <div key={index}>
-              <ReviewItem {...review} isNew={review.isNew} />
+              <ReviewItem
+                {...review}
+                isNew={review.isNew}
+                onDelete={() => handleDeleteReview(review)}
+                onEdit={() => handleFormToggle(true, review)}
+              />
             </div>
           ))}
 

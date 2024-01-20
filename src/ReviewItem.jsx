@@ -7,6 +7,8 @@ const ReviewItem = ({
   reviewTitle,
   reviewDescription,
   isNew,
+  onDelete,
+  onEdit,
 }) => (
   <div className="review-item">
     <img src="../public/images/profile.png" alt="" />
@@ -24,8 +26,8 @@ const ReviewItem = ({
       <div className="review-description">{reviewDescription}</div>
       {isNew && (
         <div>
-          <button>Delete</button>
-          <button>Edit</button>
+          <button onClick={onDelete}>Delete</button>
+          <button onClick={onEdit}>Edit</button>
         </div>
       )}
     </div>
@@ -38,6 +40,8 @@ ReviewItem.propTypes = {
   reviewTitle: PropTypes.string.isRequired,
   reviewDescription: PropTypes.string.isRequired,
   isNew: PropTypes.bool,
+  onDelete: PropTypes.func,
+  onEdit: PropTypes.func
 };
 
 export default ReviewItem;
