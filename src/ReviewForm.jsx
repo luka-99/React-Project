@@ -107,7 +107,7 @@ const ReviewForm = () => {
           <Formik
             initialValues={{
               reviewerName: selectedReview?.reviewerName || "",
-              starRating: selectedReview?.starRating || 0,
+              starRating: selectedReview?.starRating || null,
               reviewTitle: selectedReview?.reviewTitle || "",
               reviewDescription: selectedReview?.reviewDescription || "",
             }}
@@ -151,7 +151,7 @@ const ReviewForm = () => {
                 <div className="form-field">
                   <label className="title">Reviewer Name</label>
                   <Field
-                    maxLength={15}
+                    maxLength={20}
                     type="text"
                     name="reviewerName"
                     placeholder="Enter your name (optional)"
