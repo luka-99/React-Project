@@ -11,8 +11,18 @@ const ReviewItem = ({
   onEdit,
 }) => (
   <div className="review-item">
-    <img src="../public/images/profile.png" alt="" />
+    <img src="../public/images/profile.png" alt="Profile" />
     <div className="review-details">
+      {isNew && (
+        <div className="Buttons-container">
+          <button className="Delete" onClick={onDelete}>
+            Delete
+          </button>
+          <button className="Edit" onClick={onEdit}>
+            Edit
+          </button>
+        </div>
+      )}
       <div className="reviewer-name">{reviewerName}</div>
       <div className="star-rating">
         {[...Array(starRating)].map((_, index) => (
@@ -24,12 +34,6 @@ const ReviewItem = ({
       </div>
       <div className="review-title">{reviewTitle}</div>
       <div className="review-description">{reviewDescription}</div>
-      {isNew && (
-        <div>
-          <button onClick={onDelete}>Delete</button>
-          <button onClick={onEdit}>Edit</button>
-        </div>
-      )}
     </div>
   </div>
 );
@@ -41,7 +45,7 @@ ReviewItem.propTypes = {
   reviewDescription: PropTypes.string.isRequired,
   isNew: PropTypes.bool,
   onDelete: PropTypes.func,
-  onEdit: PropTypes.func
+  onEdit: PropTypes.func,
 };
 
 export default ReviewItem;

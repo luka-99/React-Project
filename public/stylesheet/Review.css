@@ -89,7 +89,31 @@
 
 .review-button.disabled {
   background: #ffab6a;
-  cursor:default;
+  cursor: default;
+}
+
+.Buttons-container {
+  height: 20px;
+  width: 52%;
+  position: relative;
+  margin-bottom: -22px;
+}
+
+.Delete,
+.Edit {
+  position: absolute;
+  background: transparent;
+  border: transparent;
+  text-decoration: underline;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.Delete {
+  right: 45px;
+}
+
+.Edit {
+  right: 0;
 }
 
 @media (max-width: 1315px) {
@@ -102,11 +126,19 @@
   .review-description {
     width: 75%;
   }
+
+  .Buttons-container {
+    width: 72%;
+  }
 }
 
 @media (max-width: 580px) {
   .review-description {
     width: 95%;
+  }
+
+  .Buttons-container {
+    width: 92%;
   }
 
   .section-title {

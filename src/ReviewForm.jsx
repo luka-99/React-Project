@@ -13,7 +13,7 @@ const validationSchema = Yup.object({
   starRating: Yup.number().required("Please select a star rating"),
   reviewTitle: Yup.string()
     .min(4, "Title must be at least 4 characters")
-    .required("Please enter your review title"),
+    .required("Please enter your headline"),
   reviewDescription: Yup.string()
     .min(15, "Review must be at least 15 characters")
     .required("Please enter your written review"),
@@ -107,7 +107,7 @@ const ReviewForm = () => {
           <Formik
             initialValues={{
               reviewerName: selectedReview?.reviewerName || "",
-              starRating: selectedReview?.starRating || null,
+              starRating: selectedReview?.starRating || 0,
               reviewTitle: selectedReview?.reviewTitle || "",
               reviewDescription: selectedReview?.reviewDescription || "",
             }}
@@ -119,24 +119,24 @@ const ReviewForm = () => {
                 <div className="form-field">
                   <label className="title-rating">Overall Rating</label>
                   <div className="star-buttons">
-                  {starValues.map((value, index) => (
-                    <button
-                      key={index}
-                      type="button"
-                      onClick={() => {
-                        setFieldValue("starRating", value);
-                        setFieldError("starRating", "");
-                      }}
-                    >
-                      <FaStar
-                        className={
-                          value <= values.starRating
-                            ? "star filled"
-                            : "star transparent-border"
-                        }
-                      />
-                    </button>
-                  ))}
+                    {starValues.map((value, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => {
+                          setFieldValue("starRating", value);
+                          setFieldError("starRating", "");
+                        }}
+                      >
+                        <FaStar
+                          className={
+                            value <= values.starRating
+                              ? "star filled"
+                              : "star transparent-border"
+                          }
+                        />
+                      </button>
+                    ))}
                   </div>
                   <ErrorMessage
                     name="starRating"
@@ -151,6 +151,7 @@ const ReviewForm = () => {
                 <div className="form-field">
                   <label className="title">Reviewer Name</label>
                   <Field
+                    maxLength={15}
                     type="text"
                     name="reviewerName"
                     placeholder="Enter your name (optional)"
@@ -177,7 +178,7 @@ const ReviewForm = () => {
                 </div>
 
                 <div className="form-field">
-                  <label className="title">Written Review</label>
+                  <label className="title">Written review</label>
                   <Field
                     as="textarea"
                     name="reviewDescription"
@@ -192,9 +193,9 @@ const ReviewForm = () => {
 
                 <div className="form-buttons">
                   <button
+                    className="Cancel"
                     type="button"
                     onClick={() => handleFormToggle(false)}
-                    className="Cancel"
                   >
                     Cancel
                   </button>
