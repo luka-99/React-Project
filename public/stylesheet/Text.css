@@ -108,7 +108,7 @@
 
 .product-buttons {
   display: flex;
-  margin-top: 40px;
+  margin-top:50vh;
 }
 
 .number-box {
@@ -196,6 +196,10 @@
     left: auto;
     margin: auto;
     margin-top: 2rem;
+  }
+
+  .product-buttons {
+    margin-top:-30px;
   }
 }
 

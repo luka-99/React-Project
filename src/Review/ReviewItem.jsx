@@ -11,7 +11,7 @@ const ReviewItem = ({
   onEdit,
 }) => (
   <div className="review-item">
-    <img src="../public/images/profile.png" alt="Profile" />
+    <img src="../public/images/profile.png" />
     <div className="review-details">
       {isNew && (
         <div className="Buttons-container">
